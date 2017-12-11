@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Services.Dtos.EmployeeDto>
+
+@{
+    ViewBag.Title = "Turnos";
+}
+
+<h2 class="titlePage">Turnos</h2>
+<ul id="listOfButton">
+    @Html.ActionLink("Turno Mañana", "MorningShift", "Shift", new { area = "" }, new { @class = "button" })
+    @Html.ActionLink("Turno Tarde", "LateShift", "Shift", new { area = "" }, new { @class = "button" })
+    @Html.ActionLink("Turno Noche", "NightShift", "Shift", new { area = "" }, new { @class = "button" })
+    </ul>
+    @if (@Model != null)
+    {
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre y Apellido</th>
+                    <th>Hora Ingreso</th>
+                    <th>Hora Egreso</th>
+                    <th>Hs Trabajadas</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name @item.Surname</td>
+
+                        @{/*TODO: AGREGAR LOS HORARIOS DE ENTRADA Y SALIDA Y SUS RESPECTIVOS IF*/}
+                        @if (true /*True si no se ingreso horario de entrada ni de salida*/)
+                    {
+                            <td>@Html.ActionLink("Agregar Ingreso", "Shifts", "Shift", new { area = "" }, new { @class = "button" })</td>
+                            <td>- -</td>
+                            <td>- -</td>
+                        }
+                        else
+                        {
+                            if (true /*True si no se ingreso el horario de salida*/)
+                            {
+
+                                <td><!--Mostrar horario de ingreso--></td>
+                                <td>@Html.ActionLink("Agregar Egreso", "Shifts", "Shift", new { area = "" }, new { @class = "button" })</td>
+                                <td> - - </td>
+                            }
+                            else
+                            {
+                                <td><!--Mostrar horario de ingreso--></td>
+                                <td><!--Mostrar horario de salida--></td>
+                                <td><!--Mostrar horas trabajadas--></td>
+                            }
+                        }
+
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    }

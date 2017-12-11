@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Services
 {
         // Los errores son porque no tengo la base de datos..
-    class Consultas
+    public class Consultas
     {
 
         private Repository<Employees> employesRepository;
