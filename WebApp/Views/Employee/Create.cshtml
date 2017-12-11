@@ -18,7 +18,7 @@ else
 <div id="newEmployeeForm">
     <form action="Create" method="post">
         <label class="labelForm">Id</label><br />
-        <label type="number" name="Id" readonly></label> <br />
+        <label type="number" name="Id" value=@Model.Id></label> <br />
         <label class="labelForm">Nombre:</label><br />
         <input type="text" name="Name" required /> <br />
         <label class="labelForm">Apellido:</label><br />

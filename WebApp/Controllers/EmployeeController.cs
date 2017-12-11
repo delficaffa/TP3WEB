@@ -52,7 +52,7 @@ namespace WebApp.Controllers
         }
 
         [HttpGet]
-        public ActionResult Modify(int? Id)
+        public ActionResult Modify(int Id)
         {
             var emp = services.Listar().FirstOrDefault(c => c.Id == Id);
             if (emp != null)
@@ -65,6 +65,11 @@ namespace WebApp.Controllers
             }
         }
 
+        public ActionResult Delete(int Id)
+        {
+            services.Eliminar(Id);
 
+            return View("Employees", services.Listar());
+        }
     }
 }

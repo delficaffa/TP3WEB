@@ -45,6 +45,7 @@ namespace Services
             {
                 list.Add(new EmployeeDto()
                 {
+                    Id = employe.ID,
                     Name = employe.Name,
                     Surname = employe.Surname,
                     Country = employe.Country,
