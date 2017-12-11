@@ -23,7 +23,9 @@ namespace WebApp.Controllers
 
         public ActionResult NightShift()
         {
-            var a = services.Listar().Where(c => c.Turn == "Noche");
+
+            //TODO:LISTAR DEBERIA SER POR TURNOS
+            var a = services.Listar();
 
             return View("Shifts", a);
         }
@@ -31,14 +33,14 @@ namespace WebApp.Controllers
         public ActionResult LateShift()
         {
 
-            var a = services.Listar().Where(c => c.Turn == "Tarde");
+            var a = services.Listar();
             return View("Shifts", a);
         }
 
         public ActionResult MorningShift()
         {
 
-            var a = services.Listar().Where(c => c.Turn == "Mañana");
+            var a = services.Listar();
             return View("Shifts", a);
         }
 

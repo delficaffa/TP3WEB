@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,11 +12,11 @@ namespace DataAccess
     public class Repository<T>
         where T : class
     {
-        private elNombreDeLaBaseDeDatos _context;
+        private DataBaseContext _context;
 
         public Repository()
         {
-            _context = new elNombreDeLaBaseDeDato();
+            _context = new DataBaseContext();
         }
 
         public void Add(T entity)

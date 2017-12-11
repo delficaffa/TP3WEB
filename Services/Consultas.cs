@@ -1,4 +1,5 @@
-﻿using Services.Dtos;
+﻿using DataAccess;
+using Services.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,17 +12,17 @@ namespace Services
     public class Consultas
     {
 
-        private Repository<Employees> employesRepository;
+        private Repository<Employee> employesRepository;
 
         public Consultas()
         {
-            employesRepository = new Repository<Employees>();
+            employesRepository = new Repository<Employee>();
         }
 
         //SI ES QUE TIENE QUE DEVOLVER EL ID CAMBIAR EL VOID POR UN INT
         public void Agregar(EmployeeDto employeeDto)
         {
-            var employee = new Employees()
+            var employee = new Employee()
             {
                 Name = employeeDto.Name,
                 Surname = employeeDto.Surname,
@@ -103,13 +104,13 @@ namespace Services
         //    };
         //}
 
-        public Employees FillData(EmployeeDto employee)
+        public Employee FillData(EmployeeDto employee)
         {
-            var newEmployee = employesRepository.GetById(employee.ID);//SI ES QUE SE BUSCA POR ID
+            var newEmployee = employesRepository.GetById(employee.Id);//SI ES QUE SE BUSCA POR ID
 
             newEmployee.Name = employee.Name;
             newEmployee.Surname = employee.Surname;
-            newEmployee.Cuntry = employee.Cuntry;
+            newEmployee.Country = employee.Country;
             newEmployee.Date = employee.Date;
             newEmployee.Turn = employee.Turn;
 

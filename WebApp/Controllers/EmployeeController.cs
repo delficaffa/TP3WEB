@@ -13,8 +13,12 @@ namespace WebApp.Controllers
     /// </summary>
     public class EmployeeController : Controller
     {
-        Consultas services = new Consultas();
+        Consultas services;
 
+        public EmployeeController()
+        {
+           services = new Consultas();
+        }
         public ActionResult Home()
         {
             return View();
@@ -28,8 +32,9 @@ namespace WebApp.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-           
-            return View(new EmployeeDto());
+            var emp = new EmployeeDto();
+
+            return View(emp);
         }
 
         [HttpPost]
@@ -41,7 +46,7 @@ namespace WebApp.Controllers
             }
             else
             {
-                services.Agregar(model);                
+                services.Agregar(model);
             }
             return View("Employees", services.Listar());
         }
@@ -57,7 +62,7 @@ namespace WebApp.Controllers
             else
             {
                 return View("Employees", services.Listar());
-            }           
+            }
         }
 
 

@@ -18,19 +18,19 @@ else
 <div id="newEmployeeForm">
     <form action="Create" method="post">
         <label class="labelForm">Id</label><br />
-        <label type="number" name="Id" readonly>@Model.Id</label> <br />
+        <label type="number" name="Id" readonly></label> <br />
         <label class="labelForm">Nombre:</label><br />
-        <input type="text" name="Name" value=@Model.Name required /> <br />
+        <input type="text" name="Name" required /> <br />
         <label class="labelForm">Apellido:</label><br />
-        <input type="text" name="Surname" value=@Model.Surname required /> <br />
+        <input type="text" name="Surname" required /> <br />
         <label class="labelForm">País:</label><br />
-        <input type="text" name="Country" value=@Model.Country required /> <br />
+        <input type="number" name="Country" required /> <br />
         <label class="labelForm">Fecha de Ingreso:</label><br />
-        <input type="date" value=@Model.Date.Value.ToShortDateString() name="Date" /> <br /><br />
+        <input type="date" name="Date" /> <br /><br />
         <label class="labelForm">Turno:</label><br />
-        Mañana: <input type="radio" value="Mañana" name="Turn" />
-        Tarde: <input type="radio" value="Tarde "name="Turn" />
-        Noche: <input type="radio" value="Noche" name="Turn" /><br /><br />
+        Mañana: <input type="radio" value="Morning" name="Turn" />
+        Tarde: <input type="radio" value="Late"name="Turn" />
+        Noche: <input type="radio" value="Night" name="Turn" /><br /><br />
         <button class="button" type="submit">Crear</button>
         <button class="button" type="reset">Limpiar</button>
         <button class="buttonCancel" type="button" onclick="location.href='@Url.Action("Employees", "Employee")'">Cancelar</button>
