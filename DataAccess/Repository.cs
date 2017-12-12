@@ -1,21 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    //LOS ERRORES SON PORQUE NO ESTA CARGADA LA BASE DE DATOS
-
     public class Repository<T>
         where T : class
     {
-        private elNombreDeLaBaseDeDatos _context;
+        private DataBaseContext _context;
 
         public Repository()
         {
-            _context = new elNombreDeLaBaseDeDato();
+            _context = new DataBaseContext();
         }
 
         public void Add(T entity)
@@ -45,9 +44,14 @@ namespace DataAccess
             return _context.Set<T>();
         }
 
-        public T GetById(int id) //SE BUSCA POR ID? SI ES POR NOMBRE CAMBIAR PARAMETROS QUE RECIBE
+        public T GetEmployeeById(int id) 
         {
             return _context.Set<T>().Find(id);
+        }
+
+        public T GetCountryByName(string name)
+        {
+            return _context.Set<T>().Find(name);
         }
 
         public void SaveChanges()

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Services.Dtos.EmployeeDto>
+
+@{
+    ViewBag.Title = "Empleados";
+}
+
+<h2 class="titlePage">Empleados</h2>
+<div id="listOfButton">
+    <a href="/Employee/Create" class="button">Crear nuevo</a>
+    <a href="" class="button">Agregar país</a>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>País</th>
+            <th>Fecha de Ingreso</th>
+            <th>Turno</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Surname</td>
+                <td>@item.Country</td>
+                @if (item.Date != null)
+                {
+                <td>@item.Date.Value.ToShortDateString()</td>
+                } else
+                {
+                    <td> - - </td>
+                }
+                <td>@item.Turn</td>
+                <td>
+                    <a class="button" href="delete?Id=@item.Id">Eliminar</a>
+                    <a class="button" href="modify?Id=@item.Id">Modificar</a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>

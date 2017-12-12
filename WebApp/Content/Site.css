@@ -1,0 +1,87 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.titlePage {
+    text-align: center;
+    font-weight: bold;
+}
+
+thead {
+    font-size: large;
+    font-weight: bold;
+}
+
+table {
+    margin: 0 auto;
+    text-align: center;
+}
+
+tbody td {
+    padding: 8px 18px;
+    border-bottom: 2px dotted black;
+}
+
+.button, .buttonCancel{
+    margin: 0 auto;
+    padding: 4px;
+    border: 2px solid black;
+    border-radius: 8px;
+    background-color: mediumblue;
+    color: white;
+    box-shadow: black -1px -1px 5px inset;
+}
+
+.button:visited {
+    color: white;
+}
+
+.button:hover {
+    box-shadow: black 2px 2px 13px inset;
+    text-decoration: none;
+}
+
+.buttonCancel {
+    background-color: white;
+    color: black;
+}
+
+#listOfButton {
+    margin: 15px 40px 25px 0;
+    text-align: center;
+}
+
+.labelForm {
+    width: 200px;
+    font-size: 20px;
+}
+
+#newEmployeeForm {
+    width: 70%;
+    padding-left: 10%;
+    margin-top: 20px;
+    margin-left: auto;
+    justify-content: flex-end;
+    border-left: 3px dotted black;
+}
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    margin: 5px 20px 5px;
+    max-width: 280px;
+}

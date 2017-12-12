@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,17 +9,20 @@ namespace Services.Dtos
 {
     public class EmployeeDto
     {
+        public int Id { get; set; }
 
         public string Name { get; set; }
 
         public string Surname { get; set; }
 
-        public string Country { get; set; }
+        public int Country { get; set; }
 
         public DateTime? Date { get; set; }
 
-        public string Turn { get; set; }
+        public EnumTurns Turn { get; set; }
 
-        
+        public TimeSpan? CheckIn { get; set; }
+
+        public TimeSpan? CheckOut { get; set; }
     }
 }

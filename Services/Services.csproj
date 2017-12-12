@@ -40,9 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Consultas.cs" />
+    <Compile Include="ConsultasCountry.cs" />
+    <Compile Include="ConsultasEmployees.cs" />
+    <Compile Include="Dtos\CountryDto.cs" />
     <Compile Include="Dtos\EmployeeDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{54e43e75-1893-45cd-8246-bde91808c94c}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
