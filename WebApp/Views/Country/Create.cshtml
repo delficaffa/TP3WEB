@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Crear País";
+}
+
+<h2>Añadir País</h2>
+
+<form action="Create" method="post">
+    <label>Ingrese el nombre</label>
+    <input type="text" name="Name" />
+    <input type="submit" class="button"/>
+</form>
+
+<h4>@ViewBag.Message</h4>

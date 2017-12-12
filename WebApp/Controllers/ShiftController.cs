@@ -12,7 +12,7 @@ namespace WebApp.Controllers
     /// </summary>
     public class ShiftController : Controller
     {
-        Consultas services = new Consultas();
+        ConsultasEmployees services = new ConsultasEmployees();
 
 
         //TODO: Consultar y resolver como vamos a agregar los horarios de ingreso y salida
@@ -23,9 +23,8 @@ namespace WebApp.Controllers
 
         public ActionResult NightShift()
         {
-
-            //TODO:LISTAR DEBERIA SER POR TURNOS
-            var a = services.Listar();
+            
+            var a = services.ListarPorTurno(2);
 
             return View("Shifts", a);
         }
@@ -33,17 +32,22 @@ namespace WebApp.Controllers
         public ActionResult LateShift()
         {
 
-            var a = services.Listar();
+            var a = services.ListarPorTurno(1);
             return View("Shifts", a);
         }
 
         public ActionResult MorningShift()
         {
 
-            var a = services.Listar();
+            var a = services.ListarPorTurno(0);
             return View("Shifts", a);
         }
 
-              
+        //[HttpPost]
+        //public ActionResult ChangeHour()
+        //{
+
+        //}      
+
     }
 }

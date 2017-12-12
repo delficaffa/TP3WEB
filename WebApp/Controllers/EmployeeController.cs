@@ -13,12 +13,17 @@ namespace WebApp.Controllers
     /// </summary>
     public class EmployeeController : Controller
     {
-        Consultas services;
+        ConsultasEmployees services;
+        ConsultasCountry countryServices;
+
 
         public EmployeeController()
         {
-           services = new Consultas();
+            services = new ConsultasEmployees();
+            countryServices = new ConsultasCountry();
         }
+
+
         public ActionResult Home()
         {
             return View();
@@ -33,7 +38,7 @@ namespace WebApp.Controllers
         public ActionResult Create()
         {
             var emp = new EmployeeDto();
-
+            ViewBag.Countries = countryServices.Listar();
             return View(emp);
         }
 
@@ -57,6 +62,7 @@ namespace WebApp.Controllers
             var emp = services.Listar().FirstOrDefault(c => c.Id == Id);
             if (emp != null)
             {
+                ViewBag.Countries = countryServices.Listar();
                 return View("Create", emp);
             }
             else

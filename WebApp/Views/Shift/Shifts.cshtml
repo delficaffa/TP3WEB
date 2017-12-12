@@ -10,7 +10,7 @@
     @Html.ActionLink("Turno Tarde", "LateShift", "Shift", new { area = "" }, new { @class = "button" })
     @Html.ActionLink("Turno Noche", "NightShift", "Shift", new { area = "" }, new { @class = "button" })
     </ul>
-    @if (@Model != null)
+    @if (@Model != null && Model.Count() != 0)
     {
         <table>
             <thead>
@@ -30,7 +30,7 @@
                         <td>@item.Name @item.Surname</td>
 
                         @{/*TODO: AGREGAR LOS HORARIOS DE ENTRADA Y SALIDA Y SUS RESPECTIVOS IF*/}
-                        @if (true /*True si no se ingreso horario de entrada ni de salida*/)
+                        @if (item.CheckIn == null)
                     {
                             <td>@Html.ActionLink("Agregar Ingreso", "Shifts", "Shift", new { area = "" }, new { @class = "button" })</td>
                             <td>- -</td>
@@ -38,7 +38,7 @@
                         }
                         else
                         {
-                            if (true /*True si no se ingreso el horario de salida*/)
+                            if (item.CheckOut == null)
                             {
 
                                 <td><!--Mostrar horario de ingreso--></td>

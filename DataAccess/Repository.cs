@@ -7,8 +7,6 @@ using System.Threading.Tasks;
 
 namespace DataAccess
 {
-    //LOS ERRORES SON PORQUE NO ESTA CARGADA LA BASE DE DATOS
-
     public class Repository<T>
         where T : class
     {
@@ -45,8 +43,8 @@ namespace DataAccess
         {
             return _context.Set<T>();
         }
-
-        public T GetById(int id) //SE BUSCA POR ID? SI ES POR NOMBRE CAMBIAR PARAMETROS QUE RECIBE
+        
+        public T GetById(int id)
         {
             return _context.Set<T>().Find(id);
         }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Services;
+using Services.Dtos;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +13,36 @@ namespace WebApp.Controllers
     /// </summary>
     public class CountryController : Controller
     {
-        //TODO: Consultar y resolver donde vamos a almacenar los países
+        ConsultasCountry services;
+
+        public CountryController()
+        {
+            services = new ConsultasCountry();
+        }
+
+        [HttpGet]
+        public ActionResult Create()
+        {
+            var country = new CountryDto();
+
+            return View(country);
+        }
+
+        [HttpPost]
+        public ActionResult Create(CountryDto model)
+        {
+            if (model.CountryID> 0)
+            {
+                services.Modificar(model);
+                ViewBag.Message = "País modificado";
+            }
+            else
+            {
+                services.Agregar(model);
+                ViewBag.Message = "País agregado";
+            }
+            
+            return View();
+        }
     }
 }

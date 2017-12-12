@@ -15,7 +15,9 @@ namespace Services.Dtos
 
         public string Surname { get; set; }
 
-        public int Country { get; set; }
+        public int CountryID { get; set; }
+
+        public string CountryName { get; set; }
 
         public DateTime? Date { get; set; }
 
