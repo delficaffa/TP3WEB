@@ -9,30 +9,30 @@ namespace Services
 {
     public class ConsultasHorarios
     {
-        private Repository<Horarios> shiftRepository;
+        private Repository<Horarios> horarioRepository;
 
         public ConsultasHorarios()
         {
-            shiftRepository = new Repository<Horarios>();
+            horarioRepository = new Repository<Horarios>();
         }
 
         public List<HorariosDto> ListarPorTurno(EnumTurns turn)
         {
             var list = new List<HorariosDto>();
-            var all = this.shiftRepository.Read();
+            var all = this.horarioRepository.Read();
 
             foreach (var horario in all)
             {
                 list.Add(new HorariosDto()
                 {
                     Id = horario.ID,
-                    Turn = horario.Turn,
+                    Employee = horario.Employees,
                     StartlHour = horario.StartlHour,
                     FinishHour = horario.FinishHour
 
                 });
             }
-            list.Where(c => c.Turn == turn);
+            list.Where(c => c.Employee.Turn == turn);
 
             return list;
         }

@@ -11,7 +11,7 @@ namespace Services.Dtos
     {
         public int Id { get; set; }
 
-        public EnumTurns Turn { get; set; }
+        public Employee Employee { get; set; }
 
         public DateTime StartlHour { get; set; }
         

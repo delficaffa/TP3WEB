@@ -11,15 +11,13 @@ namespace DataAccess.Entities
         public int ID { get; set; }
 
         [Required]
-        public EnumTurns Turn { get; set; }
-
-        [Required]
         public DateTime StartlHour { get; set; }
 
         [Required]
         public DateTime FinishHour { get; set; }
 
-        public virtual List<Employee> Employees { get; set; }
+        [Required]
+        public virtual Employee Employees { get; set; }
 
     }
 }
