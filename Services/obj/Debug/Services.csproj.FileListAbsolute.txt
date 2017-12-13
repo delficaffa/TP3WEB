@@ -1,0 +1,11 @@
+C:\Users\Delfii\Desktop\.NET Accenture\TP3\Services\bin\Debug\Services.dll
+C:\Users\Delfii\Desktop\.NET Accenture\TP3\Services\bin\Debug\Services.pdb
+C:\Users\Delfii\Desktop\.NET Accenture\TP3\Services\bin\Debug\DataAccess.dll
+C:\Users\Delfii\Desktop\.NET Accenture\TP3\Services\bin\Debug\EntityFramework.dll
+C:\Users\Delfii\Desktop\.NET Accenture\TP3\Services\bin\Debug\DataAccess.pdb
+C:\Users\Delfii\Desktop\.NET Accenture\TP3\Services\bin\Debug\DataAccess.dll.config
+C:\Users\Delfii\Desktop\.NET Accenture\TP3\Services\bin\Debug\EntityFramework.xml
+C:\Users\Delfii\Desktop\.NET Accenture\TP3\Services\obj\Debug\Services.csprojResolveAssemblyReference.cache
+C:\Users\Delfii\Desktop\.NET Accenture\TP3\Services\obj\Debug\Services.csproj.CoreCompileInputs.cache
+C:\Users\Delfii\Desktop\.NET Accenture\TP3\Services\obj\Debug\Services.dll
+C:\Users\Delfii\Desktop\.NET Accenture\TP3\Services\obj\Debug\Services.pdb

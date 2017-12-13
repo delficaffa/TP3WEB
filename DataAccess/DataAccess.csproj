@@ -58,6 +58,7 @@
     <Compile Include="DataBaseContext.cs" />
     <Compile Include="Entities\Employee.cs" />
     <Compile Include="Entities\EnumTurns.cs" />
+    <Compile Include="Entities\Horarios.cs" />
     <Compile Include="Migrations\201712112148531_FirstMigration.cs" />
     <Compile Include="Migrations\201712112148531_FirstMigration.Designer.cs">
       <DependentUpon>201712112148531_FirstMigration.cs</DependentUpon>

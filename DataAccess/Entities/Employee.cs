@@ -1,5 +1,6 @@
 namespace DataAccess
 {
+    using DataAccess.Entities;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -27,9 +28,8 @@ namespace DataAccess
         [Required]
         public EnumTurns Turn { get; set; }
 
-        public TimeSpan? CheckIn { get; set; }
-
-        public TimeSpan? CheckOut { get; set; }
+        [Required]
+        public Horarios Shift { get; set; }
 
         public virtual Country Country1 { get; set; }
     }
