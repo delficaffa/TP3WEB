@@ -11,12 +11,14 @@ namespace DataAccess.Entities
         public int ID { get; set; }
 
         [Required]
+        public int EmployeeId { get; set; }
+
+        [Required]
         public DateTime StartlHour { get; set; }
 
         [Required]
         public DateTime FinishHour { get; set; }
-
-        [Required]
+        
         public virtual Employee Employees { get; set; }
 
     }
