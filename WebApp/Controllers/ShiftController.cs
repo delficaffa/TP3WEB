@@ -113,7 +113,7 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult NewHourIn(int Id, DateTime checkIn, DateTime checkOut)
+        public ActionResult NewHourIn(int Id, DateTime checkIn, DateTime? checkOut)
         {
             var model = new HorariosDto
             {

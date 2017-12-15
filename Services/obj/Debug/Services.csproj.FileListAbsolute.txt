@@ -20,3 +20,14 @@ C:\Users\Delfii\Desktop\.NET Accenture\TP3\Services\obj\Debug\Services.pdb
 \\fsitsv17\MOS-alumnos\alumno\Lopez Gonzalo\TP3\Services\obj\Debug\Services.csproj.CoreCompileInputs.cache
 \\fsitsv17\MOS-alumnos\alumno\Lopez Gonzalo\TP3\Services\obj\Debug\Services.dll
 \\fsitsv17\MOS-alumnos\alumno\Lopez Gonzalo\TP3\Services\obj\Debug\Services.pdb
+C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\Services\bin\Debug\Services.dll
+C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\Services\bin\Debug\Services.pdb
+C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\Services\bin\Debug\DataAccess.dll
+C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\Services\bin\Debug\EntityFramework.dll
+C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\Services\bin\Debug\DataAccess.pdb
+C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\Services\bin\Debug\DataAccess.dll.config
+C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\Services\bin\Debug\EntityFramework.xml
+C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\Services\obj\Debug\Services.csprojResolveAssemblyReference.cache
+C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\Services\obj\Debug\Services.csproj.CoreCompileInputs.cache
+C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\Services\obj\Debug\Services.dll
+C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\Services\obj\Debug\Services.pdb
