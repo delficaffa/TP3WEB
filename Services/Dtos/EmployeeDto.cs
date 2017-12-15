@@ -23,8 +23,5 @@ namespace Services.Dtos
 
         public EnumTurns Turn { get; set; }
 
-        public TimeSpan? CheckIn { get; set; }
-
-        public TimeSpan? CheckOut { get; set; }
     }
 }

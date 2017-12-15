@@ -42,8 +42,10 @@
   <ItemGroup>
     <Compile Include="ConsultasCountry.cs" />
     <Compile Include="ConsultasEmployees.cs" />
+    <Compile Include="ConsultasHorarios.cs" />
     <Compile Include="Dtos\CountryDto.cs" />
     <Compile Include="Dtos\EmployeeDto.cs" />
+    <Compile Include="Dtos\HorariosDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

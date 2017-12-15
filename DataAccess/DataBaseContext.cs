@@ -14,6 +14,7 @@ namespace DataAccess
 
         public virtual DbSet<Country> Countries { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
+        public virtual DbSet<Horarios> Horarios { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
