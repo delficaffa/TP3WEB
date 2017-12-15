@@ -59,13 +59,13 @@
     <Compile Include="Entities\Employee.cs" />
     <Compile Include="Entities\EnumTurns.cs" />
     <Compile Include="Entities\Horarios.cs" />
-    <Compile Include="Migrations\201712112148531_FirstMigration.cs" />
-    <Compile Include="Migrations\201712112148531_FirstMigration.Designer.cs">
-      <DependentUpon>201712112148531_FirstMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201712151545281_ALKSHNDKLAJSDK.cs" />
+    <Compile Include="Migrations\201712151545281_ALKSHNDKLAJSDK.Designer.cs">
+      <DependentUpon>201712151545281_ALKSHNDKLAJSDK.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712131625338_Horarios.cs" />
-    <Compile Include="Migrations\201712131625338_Horarios.Designer.cs">
-      <DependentUpon>201712131625338_Horarios.cs</DependentUpon>
+    <Compile Include="Migrations\201712151552449_Country.cs" />
+    <Compile Include="Migrations\201712151552449_Country.Designer.cs">
+      <DependentUpon>201712151552449_Country.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -76,11 +76,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712112148531_FirstMigration.resx">
-      <DependentUpon>201712112148531_FirstMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712151545281_ALKSHNDKLAJSDK.resx">
+      <DependentUpon>201712151545281_ALKSHNDKLAJSDK.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712131625338_Horarios.resx">
-      <DependentUpon>201712131625338_Horarios.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712151552449_Country.resx">
+      <DependentUpon>201712151552449_Country.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

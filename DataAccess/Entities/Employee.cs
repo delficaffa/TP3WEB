@@ -1,6 +1,6 @@
 namespace DataAccess
 {
-    using DataAccess.Entities;
+    using DataAccess;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -28,9 +28,10 @@ namespace DataAccess
         [Required]
         public EnumTurns Turn { get; set; }
 
-        [Required]
-        public Horarios Shift { get; set; }
+       
+        public virtual IEnumerable<Horarios> Shift { get; set; }
 
+        [ForeignKey("Country")]
         public virtual Country Country1 { get; set; }
     }
 }

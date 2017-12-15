@@ -49,7 +49,7 @@ namespace Services
                     Id = employe.ID,
                     Name = employe.Name,
                     Surname = employe.Surname,
-                    CountryName = employe.Country1.Name,
+                    CountryID = employe.Country,
                     Date = employe.Date,
                     Turn = employe.Turn
                 });

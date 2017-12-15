@@ -1,5 +1,4 @@
 ﻿using DataAccess;
-using DataAccess.Entities;
 using Services.Dtos;
 using System;
 using System.Collections.Generic;
@@ -16,23 +15,54 @@ namespace Services
             horarioRepository = new Repository<Horarios>();
         }
 
-        //Devuelve todos los empleados por turno
-        public List<HorariosDto> ListarPorTurno(EnumTurns turn)
+        public void Add(HorariosDto dto)
         {
+            var toAdd = new Horarios
+            {
+                EmployeeId = dto.EmployeeId,
+                StartlHour = dto.StartlHour,
+                FinishHour = dto.FinishHour
+            };
+
+            horarioRepository.Add(toAdd);
+            horarioRepository.SaveChanges();
+        }
+
+        //Devuelve todos los empleados por turno
+        public List<HorariosDto> ListarPorTurno(int numTurn)
+        {
+            var turn = new EnumTurns();
+
+            switch (numTurn)
+            {
+                case 0:
+                    turn = EnumTurns.Morning;
+                    break;
+                case 1:
+                    turn = EnumTurns.Late;
+                    break;
+                case 2:
+                    turn = EnumTurns.Night;
+                    break;
+            }
+
             var list = new List<HorariosDto>();
             var porTurno = this.horarioRepository.Read()
                 .Where(c => c.Employees.Turn == turn);
 
             foreach (var empleado in porTurno)
             {
-                list.Add(new HorariosDto()
+                if (empleado.StartlHour.Date == DateTime.Today)
                 {
-                    Id = empleado.ID,
-                    EmployeeId = empleado.EmployeeId,
-                    StartlHour = empleado.StartlHour,
-                    FinishHour = empleado.FinishHour
+                    list.Add(new HorariosDto()
+                    {
+                        Id = empleado.ID,
+                        EmployeeId = empleado.EmployeeId,
+                        StartlHour = empleado.StartlHour,
+                        FinishHour = empleado.FinishHour
 
-                });
+                    });
+                }
             };
             return list;
         }

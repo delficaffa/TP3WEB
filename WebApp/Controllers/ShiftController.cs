@@ -1,9 +1,11 @@
 ﻿using Services;
+using Services.Dtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using WebApp.Models;
 
 namespace WebApp.Controllers
 {
@@ -12,10 +14,16 @@ namespace WebApp.Controllers
     /// </summary>
     public class ShiftController : Controller
     {
-        ConsultasEmployees services = new ConsultasEmployees();
+        ConsultasEmployees employeeServices;
+        ConsultasHorarios horarioServices;
 
+        public ShiftController()
+        {
+            employeeServices = new ConsultasEmployees();
+            horarioServices = new ConsultasHorarios();
+        }
 
-        //TODO: Consultar y resolver como vamos a agregar los horarios de ingreso y salida
+        
         public ActionResult Shifts()
         {
             return View();
@@ -23,31 +31,100 @@ namespace WebApp.Controllers
 
         public ActionResult NightShift()
         {
-            
-            var a = services.ListarPorTurno(2);
+            var list = new List<TurnModel>();
+            var listEmp = employeeServices.ListarPorTurno(2);
+            var a = horarioServices.ListarPorTurno(2);
+            foreach (var e in listEmp)
+            {
+                var model = new TurnModel();
+                model.EmployeeId = e.Id;
+                model.Name = e.Name + " " + e.Surname;
+                if (a.FirstOrDefault(c => c.EmployeeId == e.Id) != null)
+                {
+                    model.CheckIn = a.FirstOrDefault(c => c.EmployeeId == e.Id).StartlHour;
+                    model.CheckOut = a.FirstOrDefault(c => c.EmployeeId == e.Id).FinishHour;
+                }
+                else
+                {
+                    model.CheckIn = null;
+                    model.CheckOut = null;
+                }
+                list.Add(model);
+            }
 
-            return View("Shifts", a);
+            return View("Shifts", list);
         }
 
         public ActionResult LateShift()
         {
+            var list = new List<TurnModel>();
+            var listEmp = employeeServices.ListarPorTurno(1);
+            var a = horarioServices.ListarPorTurno(1);
 
-            var a = services.ListarPorTurno(1);
-            return View("Shifts", a);
+            foreach (var e in listEmp)
+            {
+                var model = new TurnModel();
+                model.EmployeeId = e.Id;
+                model.Name = e.Name + " " + e.Surname;
+                if(a.FirstOrDefault(c => c.EmployeeId == e.Id) != null)
+                {
+                    model.CheckIn = a.FirstOrDefault(c => c.EmployeeId == e.Id).StartlHour;
+                    model.CheckOut = a.FirstOrDefault(c => c.EmployeeId == e.Id).FinishHour;
+                } else
+                {
+                    model.CheckIn = null;
+                    model.CheckOut = null;
+                }
+                list.Add(model);
+
+            }
+            return View("Shifts", list);
         }
 
         public ActionResult MorningShift()
         {
-
-            var a = services.ListarPorTurno(0);
-            return View("Shifts", a);
+            var list = new List<TurnModel>();
+            var listEmp = employeeServices.ListarPorTurno(0);
+            var a = horarioServices.ListarPorTurno(0);
+            foreach (var e in listEmp)
+            {
+                var model = new TurnModel();
+                model.EmployeeId = e.Id;
+                model.Name = e.Name + " " + e.Surname;
+                if (a.FirstOrDefault(c => c.EmployeeId == e.Id) != null)
+                {
+                    model.CheckIn = a.FirstOrDefault(c => c.EmployeeId == e.Id).StartlHour;
+                    model.CheckOut = a.FirstOrDefault(c => c.EmployeeId == e.Id).FinishHour;
+                } else
+                {
+                    model.CheckIn = null;
+                    model.CheckOut = null;
+                }
+                list.Add(model);
+            }
+            return View("Shifts", list);
         }
 
-        //[HttpPost]
-        //public ActionResult ChangeHour()
-        //{
+        
+        public ActionResult NewHourIn(int Id)
+        {
 
-        //}      
+            return View(Id);
+        }
 
+        [HttpPost]
+        public ActionResult NewHourIn(int Id, DateTime checkIn, DateTime checkOut)
+        {
+            var model = new HorariosDto
+            {
+                EmployeeId = Id,
+                StartlHour = checkIn,
+                FinishHour = checkOut
+            };
+
+            horarioServices.Add(model);
+
+            return View("Shifts");
+        }
     }
 }

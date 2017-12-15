@@ -7,13 +7,13 @@ namespace DataAccess.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class Horarios : IMigrationMetadata
+    public sealed partial class ALKSHNDKLAJSDK : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(Horarios));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ALKSHNDKLAJSDK));
         
         string IMigrationMetadata.Id
         {
-            get { return "201712131625338_Horarios"; }
+            get { return "201712151545281_ALKSHNDKLAJSDK"; }
         }
         
         string IMigrationMetadata.Source

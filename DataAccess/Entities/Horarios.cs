@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace DataAccess.Entities
+namespace DataAccess
 {
+    [Table("Horarios")]
     public class Horarios
     {
         [Key]
@@ -19,7 +20,7 @@ namespace DataAccess.Entities
         [Required]
         public DateTime FinishHour { get; set; }
         
+        [ForeignKey("EmployeeId")]
         public virtual Employee Employees { get; set; }
-
     }
 }
