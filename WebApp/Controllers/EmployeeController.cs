@@ -45,7 +45,7 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(EmployeeDto model, double Price)
+        public ActionResult Create(EmployeeDto model)
         {
             if (model.Id > 0)
             {
