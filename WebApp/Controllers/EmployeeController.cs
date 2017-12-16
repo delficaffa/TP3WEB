@@ -15,12 +15,14 @@ namespace WebApp.Controllers
     {
         ConsultasEmployees services;
         ConsultasCountry countryServices;
+        ConsultasHorarios horarioServices;
 
 
         public EmployeeController()
         {
             services = new ConsultasEmployees();
             countryServices = new ConsultasCountry();
+            horarioServices = new ConsultasHorarios();
         }
 
 
@@ -43,7 +45,7 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(EmployeeDto model)
+        public ActionResult Create(EmployeeDto model, double Price)
         {
             if (model.Id > 0)
             {
@@ -76,6 +78,22 @@ namespace WebApp.Controllers
             services.Eliminar(Id);
 
             return View("Employees", services.Listar());
+        }
+
+        public ActionResult Salary(int id)
+        {
+            var emp = services.GetById(id);
+            ViewBag.EmployeeName = emp.Name + " " + emp.Surname;
+            ViewBag.Price = emp.Price;
+            var list = horarioServices.ListarHorariosDeEmpleado(id, DateTime.Now.Month);
+            return View(list);
+        }
+
+        [HttpPost]
+        public ActionResult Salary(int id, int month)
+        {
+            var a = horarioServices.ListarHorariosDeEmpleado(id, month);
+            return View(a);
         }
     }
 }

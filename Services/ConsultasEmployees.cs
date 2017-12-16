@@ -19,6 +19,22 @@ namespace Services
             employesRepository = new Repository<Employee>();
         }
 
+        public EmployeeDto GetById(int id)
+        {
+            var employee = employesRepository.Set()
+                            .Select(
+                         c => new EmployeeDto
+                         {
+                             Id = c.ID,
+                             Name = c.Name,
+                             Surname = c.Surname,
+                             CountryName = c.Country1.Name,
+                             Date = c.Date,
+                             Turn = c.Turn,
+                             Price = c.Price
+                         }).FirstOrDefault(c => c.Id == id);
+            return employee;
+        }
         
         public int Agregar(EmployeeDto employeeDto)
         {
@@ -28,7 +44,8 @@ namespace Services
                 Surname = employeeDto.Surname,
                 Country = employeeDto.CountryID,
                 Date = employeeDto.Date,
-                Turn = employeeDto.Turn
+                Turn = employeeDto.Turn,
+                Price = employeeDto.Price
             };
 
             this.employesRepository.Add(employee);
@@ -51,7 +68,8 @@ namespace Services
                     Surname = employe.Surname,
                     CountryID = employe.Country,
                     Date = employe.Date,
-                    Turn = employe.Turn
+                    Turn = employe.Turn,
+                    Price = employe.Price
                 });
             }
             return list;
@@ -61,51 +79,33 @@ namespace Services
         public List<EmployeeDto> ListarPorTurno(int turno)
         {
             var list = new List<EmployeeDto>();
-
+            EnumTurns turn = new EnumTurns();
             switch (turno)
             {
                 case 0:
-                     list = this.employesRepository.Set()
-                        .Where(c => c.Turn == EnumTurns.Morning).Select(
-                         c => new EmployeeDto
-                         {
-                             Id = c.ID,
-                             Name = c.Name,
-                             Surname = c.Surname,
-                             CountryName = c.Country1.Name,
-                             Date = c.Date,
-                             Turn = c.Turn
-                         }).ToList();
+                    turn = EnumTurns.Morning;
                     break;
                 case 1:
-                    list = this.employesRepository.Set()
-                        .Where(c => c.Turn == EnumTurns.Late).Select(
-                         c => new EmployeeDto
-                         {
-                             Id = c.ID,
-                             Name = c.Name,
-                             Surname = c.Surname,
-                             CountryName = c.Country1.Name,
-                             Date = c.Date,
-                             Turn = c.Turn
-                         }).ToList(); 
+                    turn = EnumTurns.Late;
                     break;
                 case 2:
-                    list = this.employesRepository.Set()
-                        .Where(c => c.Turn == EnumTurns.Night).Select(
-                         c => new EmployeeDto
-                         {
-                             Id = c.ID,
-                             Name = c.Name,
-                             Surname = c.Surname,
-                             CountryName = c.Country1.Name,
-                             Date = c.Date,
-                             Turn = c.Turn
-                         }).ToList();
+                    turn = EnumTurns.Night;
                     break;
             }
 
-           
+            list = this.employesRepository.Set()
+                        .Where(c => c.Turn == turn).Select(
+                         c => new EmployeeDto
+                         {
+                             Id = c.ID,
+                             Name = c.Name,
+                             Surname = c.Surname,
+                             CountryName = c.Country1.Name,
+                             Date = c.Date,
+                             Turn = c.Turn,
+                             Price = c.Price
+                         }).ToList();
+
             return list;
 
         }
@@ -148,6 +148,7 @@ namespace Services
             newEmployee.Country = employee.CountryID;
             newEmployee.Date = employee.Date;
             newEmployee.Turn = employee.Turn;
+            newEmployee.Price = employee.Price;
 
             return newEmployee;
 

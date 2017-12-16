@@ -28,6 +28,8 @@ namespace DataAccess
         [Required]
         public EnumTurns Turn { get; set; }
 
+        [Required]
+        public decimal Price { get; set; }
        
         public virtual IEnumerable<Horarios> Shift { get; set; }
 

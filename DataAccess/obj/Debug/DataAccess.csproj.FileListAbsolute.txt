@@ -40,3 +40,5 @@ C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\DataAccess\obj\Debug\D
 C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\DataAccess\obj\Debug\DataAccess.dll
 C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\DataAccess\obj\Debug\DataAccess.pdb
 C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\DataAccess\obj\Debug\DataAccess.Migrations.NullExitHour.resources
+C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\DataAccess\obj\Debug\DataAccess.Migrations.PricexHour.resources
+C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\DataAccess\obj\Debug\DataAccess.Migrations.PricexHour2.resources

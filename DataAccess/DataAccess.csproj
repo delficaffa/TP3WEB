@@ -71,6 +71,14 @@
     <Compile Include="Migrations\201712152242076_NullExitHour.Designer.cs">
       <DependentUpon>201712152242076_NullExitHour.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712162034107_PricexHour.cs" />
+    <Compile Include="Migrations\201712162034107_PricexHour.Designer.cs">
+      <DependentUpon>201712162034107_PricexHour.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712162037469_PricexHour2.cs" />
+    <Compile Include="Migrations\201712162037469_PricexHour2.Designer.cs">
+      <DependentUpon>201712162037469_PricexHour2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
@@ -88,6 +96,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712152242076_NullExitHour.resx">
       <DependentUpon>201712152242076_NullExitHour.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712162034107_PricexHour.resx">
+      <DependentUpon>201712162034107_PricexHour.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712162037469_PricexHour2.resx">
+      <DependentUpon>201712162037469_PricexHour2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
