@@ -108,16 +108,26 @@ namespace WebApp.Controllers
         
         public ActionResult NewHourIn(int Id)
         {
-
-            return View(Id);
+            var h = horarioServices.GetToday(Id);
+            if (h == null)
+            {
+                h = new HorariosDto
+                {
+                    Id = 0,
+                    EmployeeId = Id,
+                    StartlHour = new DateTime()
+                };
+            }
+            return View(h);
         }
 
         [HttpPost]
-        public ActionResult NewHourIn(int Id, DateTime checkIn, DateTime? checkOut)
+        public ActionResult NewHourIn(int Id, int employeeId, DateTime checkIn, DateTime? checkOut)
         {
+
             var model = new HorariosDto
             {
-                EmployeeId = Id,
+                EmployeeId = employeeId,
                 StartlHour = checkIn,
                 FinishHour = checkOut
             };
