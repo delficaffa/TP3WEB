@@ -23,7 +23,7 @@ namespace WebApp.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            var country = new CountryDto();
+            var country = services.Listar();
 
             return View(country);
         }
@@ -41,8 +41,16 @@ namespace WebApp.Controllers
                 services.Agregar(model);
                 ViewBag.Message = "País agregado";
             }
-            
-            return View();
+
+            var country = services.Listar();
+            return View(country);
+        }
+
+        public ActionResult Delete(int Id)
+        {
+            services.Eliminar(Id);
+
+            return View("Create", services.Listar());
         }
     }
 }

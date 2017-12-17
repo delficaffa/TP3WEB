@@ -117,11 +117,11 @@ namespace Services
         }
 
         //Devuelve los horarios trabajados por empleado por mes
-        public List<HorariosDto> ListarHorariosDeEmpleado(int idEmpleado, int mes)
+        public List<HorariosDto> ListarHorariosDeEmpleado(int idEmpleado, int mes, int año)
         {
             var list = new List<HorariosDto>();
             var porMes = this.horarioRepository.Read()
-                .Where(c => c.Employees.ID == idEmpleado && c.StartlHour.Month == mes);
+                .Where(c => c.Employees.ID == idEmpleado && c.StartlHour.Month == mes && c.StartlHour.Year == año);
 
             foreach (var horario in porMes)
             {

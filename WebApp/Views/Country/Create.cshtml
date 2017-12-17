@@ -1,4 +1,7 @@
-﻿
+﻿@model List<Services.Dtos.CountryDto>
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/myScript.js"></script>
+
 @{
     ViewBag.Title = "Crear País";
 }
@@ -7,8 +10,28 @@
 
 <form action="Create" method="post">
     <label>Ingrese el nombre</label>
-    <input type="text" name="Name" />
-    <input type="submit" class="button"/>
+    <input type="text" name="Name" id="inputCountry" />
+    <input type="submit" class="button" id="btnSubmitCountry"/><br />
+    <span class="error label label-primary" id="countryError"></span>
 </form>
 
 <h4>@ViewBag.Message</h4>
+
+<h2 class="titlePage">Paises</h2>
+
+<table class="table">
+    <thead>
+        <tr><th>Nombre</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var c in Model)
+        {
+            <tr>
+                <td>@c.Name</td>
+                <td>
+                    <a class="button" href="delete?Id=@c.CountryID">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

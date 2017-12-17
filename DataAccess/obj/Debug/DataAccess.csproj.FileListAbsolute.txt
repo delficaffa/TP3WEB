@@ -35,10 +35,10 @@ C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\DataAccess\bin\Debug\E
 C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
 C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\DataAccess\obj\Debug\DataAccess.Migrations.ALKSHNDKLAJSDK.resources
 C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\DataAccess\obj\Debug\DataAccess.Migrations.Country.resources
+C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\DataAccess\obj\Debug\DataAccess.Migrations.NullExitHour.resources
+C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\DataAccess\obj\Debug\DataAccess.Migrations.PricexHour.resources
+C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\DataAccess\obj\Debug\DataAccess.Migrations.PricexHour2.resources
 C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\DataAccess\obj\Debug\DataAccess.csproj.GenerateResource.Cache
 C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\DataAccess\obj\Debug\DataAccess.csproj.CoreCompileInputs.cache
 C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\DataAccess\obj\Debug\DataAccess.dll
 C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\DataAccess\obj\Debug\DataAccess.pdb
-C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\DataAccess\obj\Debug\DataAccess.Migrations.NullExitHour.resources
-C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\DataAccess\obj\Debug\DataAccess.Migrations.PricexHour.resources
-C:\Users\gnzlo\Trabajos\ACCENTURE .NET\RepoDelfina\TP3WEB\DataAccess\obj\Debug\DataAccess.Migrations.PricexHour2.resources

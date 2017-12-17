@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Services;
 using Services.Dtos;
+using WebApp.Models;
 
 namespace WebApp.Controllers
 {
@@ -82,18 +83,48 @@ namespace WebApp.Controllers
 
         public ActionResult Salary(int id)
         {
-            var emp = services.GetById(id);
-            ViewBag.EmployeeName = emp.Name + " " + emp.Surname;
-            ViewBag.Price = emp.Price;
-            var list = horarioServices.ListarHorariosDeEmpleado(id, DateTime.Now.Month);
+            var list = GetModel(id, DateTime.Now.Month, DateTime.Now.Year);
             return View(list);
         }
 
         [HttpPost]
-        public ActionResult Salary(int id, int month)
+        public ActionResult Salary(int id, string date)
         {
-            var a = horarioServices.ListarHorariosDeEmpleado(id, month);
+            var dateSplit = date.Split('-');
+            var month = int.Parse(dateSplit[1]);
+            var year = int.Parse(dateSplit[0]);
+            var a = GetModel(id, month, year);
             return View(a);
+        }
+
+        public List<TurnModel> GetModel(int id, int month, int year)
+        {
+            var emp = services.GetById(id);
+            var list = new List<TurnModel>();
+
+            foreach (var item in horarioServices.ListarHorariosDeEmpleado(id, month, year))
+            {
+                var n = new TurnModel();
+                n.EmployeeId = emp.Id;
+                n.Name = emp.Name + " " + emp.Surname;
+                n.CheckIn = item.StartlHour;
+                n.CheckOut = item.FinishHour;
+                n.Price = emp.Price;
+                list.Add(n);
+            }
+
+            if (list.Count == 0)
+            {
+                list.Add(new TurnModel
+                {
+                    EmployeeId = emp.Id,
+                    Name = emp.Name + " " + emp.Surname,
+                    CheckIn = null,
+                    CheckOut = null,
+                    Price = emp.Price
+                });
+            }
+            return list;
         }
     }
 }

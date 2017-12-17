@@ -1,4 +1,6 @@
 ﻿@model Services.Dtos.EmployeeDto
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/myScript.js"></script>
 
 @{
     ViewBag.Title = "Crear";
@@ -16,36 +18,47 @@ else
 
 
 <div id="newEmployeeForm">
-    <form action="Create" method="post">
+    <form name="formCreate" action="Create" method="post">
         <label class="labelForm">Id</label><br />
         <input type="number" name="Id" value=@Model.Id readonly> <br />
         <label class="labelForm">Nombre:</label><br />
-        <input type="text" name="Name" required /> <br />
+        <input type="text" name="Name" id="name" value=@Model.Name required /> <br />
+        <span id="nombre_error" class="error label label-primary"></span><br />
         <label class="labelForm">Apellido:</label><br />
-        <input type="text" name="Surname" required /> <br />
+        <input type="text" name="Surname" id="surname" value=@Model.Surname required /> <br />
+        <span id="apellido_error" class="error label label-primary"></span><br />
         <label class="labelForm">País:</label><br />
 
-        <select name="CountryID" >
-            <option selected hidden>Seleccione un país</option>
-            @foreach(var item in ViewBag.Countries)
+        <select name="CountryID" id="country" required>
+            <option selected hidden value="-1">Seleccione un país</option>
+            @foreach (var item in ViewBag.Countries)
             {
-                <option value=@item.CountryID>@item.Name</option>
+                if (item.CountryID == Model.CountryID)
+                {
+                    <option value=@item.CountryID selected>@item.Name</option>
+                }
+                else
+                {
+                    <option value=@item.CountryID>@item.Name</option>
+                }
             }
         </select>
         <br />
-        <!--<input type="number" name="Country" required /> <br />-->
+        <span id="pais_error" class="error label label-primary"></span><br />
 
         <label class="labelForm">Fecha de Ingreso:</label><br />
-        <input type="date" name="Date" /> <br /><br />
+        <input type="date" name="Date" id="entry" @if (Model.Date != null) {<text> value=@Model.Date.Value.ToString("yyyy-MM-dd") </text> }/> <br /><br />
+        <span id="entry_error" class="error label label-primary"></span><br />
         <label class="labelForm">Precio por hora:</label><br />
-        @Html.EditorFor(model => model.Price)
+        @Html.EditorFor(model => model.Price, new { @id = "price" })<br />
+        <span id="price_error" class="error label label-primary"></span><br />
         <label class="labelForm">Turno:</label><br />
-        Mañana: <input type="radio" value="Morning" name="Turn" />
-        Tarde: <input type="radio" value="Late"name="Turn" />
-        Noche: <input type="radio" value="Night" name="Turn" /><br /><br />
-        <button class="button" type="submit" onclick="ValidateCreate()">Crear</button>
+        Mañana: <input type="radio" value="Morning" @if ((int)Model.Turn == 0 && Model.Id != 0) {<text>checked</text>} name="Turn" />
+        Tarde: <input type="radio" value="Late" name="Turn" @if ((int)Model.Turn == 1) { <text> checked</text>} />
+        Noche: <input type="radio" value="Night" name="Turn" @if ((int)Model.Turn == 2) { <text> checked</text>} /><br /><br />
+        <spanv id="turn_error" class="error label label-primary"></spanv><br />
+        <button class="button" type="submit" name="send" id="send">Enviar</button>
         <button class="button" type="reset">Limpiar</button>
         <button class="buttonCancel" type="button" onclick="location.href='@Url.Action("Employees", "Employee")'">Cancelar</button>
     </form>
 </div>
-

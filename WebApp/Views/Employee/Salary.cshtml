@@ -1,4 +1,4 @@
-﻿@model List<Services.Dtos.HorariosDto>
+﻿@model List<WebApp.Models.TurnModel>
 
 @{
     ViewBag.Title = "Salario";
@@ -7,11 +7,21 @@
 
 <h2 class="titlePage">Salario</h2>
 
-<br />
+
 <br />
 
-<h4>Empleado: @ViewBag.EmployeeName</h4>
+<h4>Empleado: @Model.FirstOrDefault().Name</h4>
 
+<br />
+
+<form action="Salary" method="post">
+    <input type="number" name="id" value="@Model.FirstOrDefault().EmployeeId" hidden readonly />
+    Seleccione un mes:
+    <input type="month" name="date" required />
+
+    <button type="submit" class="button">Sueldo</button>
+</form>
+<br />
 <table>
     <thead>
         <tr>
@@ -37,29 +47,41 @@
         {
             decimal monto = 0.0m;
             <tr>
-                <td>@item.StartlHour.ToShortDateString()</td>
-                <td>@item.StartlHour.TimeOfDay</td>
-                @if (item.FinishHour == null)
+                @if (item.CheckIn != null)
+                {
+                    <td>@item.CheckIn.Value.ToShortDateString()</td>
+                    <td>@item.CheckIn.Value.TimeOfDay</td>
+
+                    if (item.CheckOut == null)
+                    {
+                        <td>- -</td>
+                        <td> - - </td>
+                        <td> - - </td>
+                    }
+                    else
+                    {
+                        monto = decimal.
+                            Parse(item.CheckOut.Value.TimeOfDay.
+                            Subtract(item.CheckIn.Value.TimeOfDay).
+                            TotalHours.ToString()) * item.Price;
+                        <td>@item.CheckOut.Value.TimeOfDay</td>
+                        <td>@item.CheckOut.Value.TimeOfDay.Subtract(item.CheckIn.Value.TimeOfDay)</td>
+                        <td>@monto</td>
+                    }
+                    total = total + monto;
+                }
+                else
                 {
                     <td>- -</td>
                     <td> - - </td>
                     <td> - - </td>
+                    <td> - - </td>
+                    <td> - - </td>
                 }
-                else
-                {
-                    monto = decimal.
-                        Parse(item.FinishHour.Value.TimeOfDay.
-                        Subtract(item.StartlHour.TimeOfDay).
-                        TotalHours.ToString()) * ViewBag.Price;
-                <td>@item.FinishHour.Value.TimeOfDay</td>
-                <td>@item.FinishHour.Value.TimeOfDay.Subtract(item.StartlHour.TimeOfDay)</td>
-                <td>@monto</td>
-                }
-                @{total = total + monto;}
             </tr>
-                    }
+        }
         <tr>
-            <td>Total a cobrar:</td>
+            <td><h5>Total a cobrar:</h5></td>
             <td></td>
             <td></td>
             <td>$</td>
