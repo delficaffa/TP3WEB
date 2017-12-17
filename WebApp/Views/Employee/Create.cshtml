@@ -47,7 +47,7 @@ else
         <span id="pais_error" class="error label label-primary"></span><br />
 
         <label class="labelForm">Fecha de Ingreso:</label><br />
-        <input type="date" name="Date" id="entry" /> <br /><br />
+        <input type="date" name="Date" id="entry" @if (Model.Date != null) {<text> value=@Model.Date.Value.ToString("yyyy-MM-dd") </text> }/> <br /><br />
         <span id="entry_error" class="error label label-primary"></span><br />
         <label class="labelForm">Precio por hora:</label><br />
         @Html.EditorFor(model => model.Price, new { @id = "price" })<br />

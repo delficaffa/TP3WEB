@@ -67,6 +67,7 @@ namespace Services
                     Name = employe.Name,
                     Surname = employe.Surname,
                     CountryID = employe.Country,
+                    CountryName = employe.Country1.Name,
                     Date = employe.Date,
                     Turn = employe.Turn,
                     Price = employe.Price

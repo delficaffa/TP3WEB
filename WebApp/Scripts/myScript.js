@@ -1,5 +1,5 @@
 ﻿$(document).ready(function () {
-    $("#send").click( function () {
+    $("#send").click(function () {
         $(".error").hide();
 
         //Validaciones de nombre
@@ -52,12 +52,12 @@
             $("#pais_error").fadeIn('fast');
             $("#country").focus();
             return false;
-        } 
+        }
 
         //Validaciones de fecha de ingreso
         var entry = $("#entry");
 
-        
+
         //Validaciones de Precio
         var price = $("#Price");
         var value = price.val();
@@ -80,15 +80,32 @@
         }
 
         var ctrl = document.formCreate.Turn;
-               
-            for (i = 0; i < ctrl.length; i++)
-                if (ctrl[i].checked) var valueTurn = ctrl[i].value;
 
-            if (valueTurn == undefined) {
-                $('#turn_error').html("Debe seleccionar al menos un turno");
-                $("#turn_error").fadeIn('fast');
-                return false;
-            }
+        for (i = 0; i < ctrl.length; i++)
+            if (ctrl[i].checked) var valueTurn = ctrl[i].value;
+
+        if (valueTurn == undefined) {
+            $('#turn_error').html("Debe seleccionar al menos un turno");
+            $("#turn_error").fadeIn('fast');
+            return false;
+        }
 
     });
+
+    $("#btnSubmitCountry").click(function () {
+        $(".error").hide();
+
+
+        var inp = $("#inputCountry");
+
+        var value = inp.val();
+
+        if (!value.match(/^[a-zA-Z Áa Éé Íí Óó Úú Üü]+$/)) {
+            $('#countryError').html("Un pais no puede contener números ni simbolos");
+            $("#countryError").fadeIn('fast');
+            $("#inputCountry").focus();
+            return false;
+        }
+
+    })
 })
