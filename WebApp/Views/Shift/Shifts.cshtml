@@ -28,14 +28,33 @@
                 <tr>
                     <td>@item.EmployeeId</td>
                     <td>@item.Name</td>
-                    <td>@item.CheckIn</td>
-                    <td>@item.CheckOut</td>
-                    @if (item.CheckIn == null || item.CheckOut == null)
+                    @if (item.CheckIn == null)
                     {
-                   <a href="newHourIn?Id=@item.EmployeeId" class="button">Agregar</a>
-                   
+                        <td> - - </td>
+                        <td> - - </td>
+                        <td> - - </td>
+                        <td>
+                            <a href="newHourIn?Id=@item.EmployeeId" class="button">Agregar</a>
+                        </td>
                     }
-                    
+                    else
+                    {
+                        <td>@item.CheckIn.Value.TimeOfDay</td>
+
+                        if (item.CheckOut == null)
+                        {
+                            <td> - - </td>
+                            <td> - - </td>
+                            <td>
+                                <a href="newHourIn?Id=@item.EmployeeId" class="button">Agregar</a>
+                            </td>
+                        }
+                        else
+                        {
+                            <td>@item.CheckOut.Value.TimeOfDay</td>
+                            <td>@item.CheckOut.Value.TimeOfDay.Subtract(item.CheckIn.Value.TimeOfDay)</td>
+                        }
+                    }
                 </tr>
 
             }

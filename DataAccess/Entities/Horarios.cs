@@ -17,8 +17,7 @@ namespace DataAccess
         [Required]
         public DateTime StartlHour { get; set; }
 
-        [Required]
-        public DateTime FinishHour { get; set; }
+        public DateTime? FinishHour { get; set; }
         
         [ForeignKey("EmployeeId")]
         public virtual Employee Employees { get; set; }

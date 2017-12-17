@@ -1,4 +1,5 @@
-﻿@model int
+﻿@model Services.Dtos.HorariosDto
+
 
 
 @{
@@ -8,9 +9,11 @@
 <h2>Agregar horarios</h2>
 <br />
 <form action="NewHourIn" method="post">
-    <input type="number" name="id" value="@Model" readonly />
+    <input type="number" name="id" value="@Model.Id" hidden readonly /><br />
+    <label>Id de empleado:</label>
+    <input type="number" name="employeeId" value="@Model.EmployeeId" readonly /><br />
     <label>Horario de entrada:</label>
-    <input type="time" name="checkIn" /><br />
+    <input type="time" name="checkIn" value="@Model.StartlHour.TimeOfDay" required/><br />
     <label>Horario de salida</label>
     <input type="time" name="checkOut" />
     <button type="submit" class="button">OK</button> 

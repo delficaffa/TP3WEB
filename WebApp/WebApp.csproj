@@ -198,6 +198,7 @@
     <Content Include="Views\Shift\Shifts.cshtml" />
     <Content Include="Views\Country\Create.cshtml" />
     <Content Include="Views\Shift\NewHourIn.cshtml" />
+    <Content Include="Views\Employee\Salary.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

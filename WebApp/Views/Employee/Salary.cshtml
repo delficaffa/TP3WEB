@@ -1,0 +1,69 @@
+﻿@model List<Services.Dtos.HorariosDto>
+
+@{
+    ViewBag.Title = "Salario";
+    decimal total = 0.0m;
+}
+
+<h2 class="titlePage">Salario</h2>
+
+<br />
+<br />
+
+<h4>Empleado: @ViewBag.EmployeeName</h4>
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                Fecha
+            </th>
+            <th>
+                Entrada
+            </th>
+            <th>
+                Salida
+            </th>
+            <th>
+                Horas Trabajas
+            </th>
+            <th>
+                Monto
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            decimal monto = 0.0m;
+            <tr>
+                <td>@item.StartlHour.ToShortDateString()</td>
+                <td>@item.StartlHour.TimeOfDay</td>
+                @if (item.FinishHour == null)
+                {
+                    <td>- -</td>
+                    <td> - - </td>
+                    <td> - - </td>
+                }
+                else
+                {
+                    monto = decimal.
+                        Parse(item.FinishHour.Value.TimeOfDay.
+                        Subtract(item.StartlHour.TimeOfDay).
+                        TotalHours.ToString()) * ViewBag.Price;
+                <td>@item.FinishHour.Value.TimeOfDay</td>
+                <td>@item.FinishHour.Value.TimeOfDay.Subtract(item.StartlHour.TimeOfDay)</td>
+                <td>@monto</td>
+                }
+                @{total = total + monto;}
+            </tr>
+                    }
+        <tr>
+            <td>Total a cobrar:</td>
+            <td></td>
+            <td></td>
+            <td>$</td>
+            <td>@total</td>
+        </tr>
+    </tbody>
+</table>

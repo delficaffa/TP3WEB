@@ -19,6 +19,7 @@
             <th>País</th>
             <th>Fecha de Ingreso</th>
             <th>Turno</th>
+            <th>Precio por Hora</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -38,9 +39,11 @@
                     <td> - - </td>
                 }
                 <td>@item.Turn</td>
+                <td>@item.Price</td>
                 <td>
                     <a class="button" href="delete?Id=@item.Id">Eliminar</a>
                     <a class="button" href="modify?Id=@item.Id">Modificar</a>
+                    <a class="button" href="salary?Id=@item.Id">Sueldo</a>
                 </td>
             </tr>
 

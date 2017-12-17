@@ -37,11 +37,13 @@ else
 
         <label class="labelForm">Fecha de Ingreso:</label><br />
         <input type="date" name="Date" /> <br /><br />
+        <label class="labelForm">Precio por hora:</label><br />
+        @Html.EditorFor(model => model.Price)
         <label class="labelForm">Turno:</label><br />
         Mañana: <input type="radio" value="Morning" name="Turn" />
         Tarde: <input type="radio" value="Late"name="Turn" />
         Noche: <input type="radio" value="Night" name="Turn" /><br /><br />
-        <button class="button" type="submit">Crear</button>
+        <button class="button" type="submit" onclick="ValidateCreate()">Crear</button>
         <button class="button" type="reset">Limpiar</button>
         <button class="buttonCancel" type="button" onclick="location.href='@Url.Action("Employees", "Employee")'">Cancelar</button>
     </form>

@@ -21,6 +21,8 @@ namespace Services.Dtos
 
         public DateTime? Date { get; set; }
 
+        public decimal Price { get; set; }
+
         public EnumTurns Turn { get; set; }
 
     }

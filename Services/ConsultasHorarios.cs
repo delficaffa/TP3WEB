@@ -15,20 +15,69 @@ namespace Services
             horarioRepository = new Repository<Horarios>();
         }
 
-        public void Add(HorariosDto dto)
+        /// <summary>
+        /// Obtiene los horarios de HOY de un empleado segun su ID. Devuelve null si no se ingreso ningun horario hoy.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public HorariosDto GetToday(int id)
         {
-            var toAdd = new Horarios
-            {
-                EmployeeId = dto.EmployeeId,
-                StartlHour = dto.StartlHour,
-                FinishHour = dto.FinishHour
-            };
+            DateTime startDateTime = DateTime.Today; //Today at 00:00:00
+            DateTime endDateTime = DateTime.Today.AddDays(1).AddTicks(-1); //Today at 23:59:59
 
-            horarioRepository.Add(toAdd);
-            horarioRepository.SaveChanges();
+            var today = new HorariosDto();
+                
+                today = horarioRepository.Set()
+                        .Where(c => c.EmployeeId == id && c.StartlHour >= startDateTime && c.StartlHour <= endDateTime)
+                        .Select(c => new HorariosDto
+                        {
+                            Id = c.ID,
+                            EmployeeId = c.EmployeeId,
+                            StartlHour = c.StartlHour,
+                            FinishHour = c.FinishHour
+                        })
+                        .FirstOrDefault();
+
+            return today;
         }
 
-        //Devuelve todos los empleados por turno
+        /// <summary>
+        /// Agrega un horario si todavia no se ha agregado ningun horario hoy. Si ya se agrego un horario el dia de hoy lo modifica.
+        /// </summary>
+        /// <param name="dto"></param>
+            public void Add(HorariosDto dto)
+        {
+            var exist = GetToday(dto.EmployeeId);
+                        
+            if (exist == null)
+            {
+                var toAdd = new Horarios
+                {
+                    EmployeeId = dto.EmployeeId,
+                    StartlHour = dto.StartlHour,
+                    FinishHour = dto.FinishHour
+                };
+                horarioRepository.Add(toAdd);
+            }
+            else
+            {
+                var toAdd = new Horarios
+                {
+                    ID = exist.Id,
+                    EmployeeId = exist.EmployeeId,
+                    StartlHour = dto.StartlHour,
+                    FinishHour = dto.FinishHour
+                };
+                   horarioRepository.Update(toAdd);
+            }
+            horarioRepository.SaveChanges();
+        }
+        
+        /// <summary>
+        /// Devuelve la lista de los horarios de HOY segun un turno especifico.
+        /// </summary>
+        /// <param name="numTurn"></param>
+        /// <returns></returns>
         public List<HorariosDto> ListarPorTurno(int numTurn)
         {
             var turn = new EnumTurns();
@@ -73,7 +122,7 @@ namespace Services
             var list = new List<HorariosDto>();
             var porMes = this.horarioRepository.Read()
                 .Where(c => c.Employees.ID == idEmpleado && c.StartlHour.Month == mes);
-        
+
             foreach (var horario in porMes)
             {
                 list.Add(new HorariosDto()
@@ -90,4 +139,3 @@ namespace Services
 
     }
 }
-  

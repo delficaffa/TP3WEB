@@ -15,6 +15,6 @@ namespace Services.Dtos
 
         public DateTime StartlHour { get; set; }
         
-        public DateTime FinishHour { get; set; }
+        public DateTime? FinishHour { get; set; }
     }
 }
