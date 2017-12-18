@@ -11,7 +11,7 @@
             $("#name").focus();
             return false;
         } else if (!firstName.val().match(/^[a-zA-Z Áa Éé Íí Óó Úú Üü]+$/)) {
-            $('#nombre_error').html("El Nombre no puede contener numeros");
+            $('#nombre_error').html("El Nombre no puede contener numeros ni simbolos");
             $("#nombre_error").fadeIn('fast');
             $("#name").focus();
             return false;
@@ -32,7 +32,7 @@
             $("#surname").focus();
             return false;
         } else if (!lastName.val().match(/^[a-zA-Z Áa Éé Íí Óó Úú Üü]+$/)) {
-            $('#apellido_error').html("El Apellido no puede contener numeros");
+            $('#apellido_error').html("El Apellido no puede contener numeros ni simbolos");
             $("#apellido_error").fadeIn('fast');
             $("#surname").focus();
             return false;
@@ -107,5 +107,18 @@
             return false;
         }
 
+    })
+
+    $("#btnSubmitTurn").click(function () {
+        $(".error").hide();
+        var hourIn = $("#hourIn").val();
+        var hourout = $("#hourOut").val();
+
+        if (hourIn > hourout) {
+            $('#hour_error').html("La hora de salida no puede ser antes que la hora de entrada");
+            $("#hour_error").fadeIn('fast');
+            $("#hourOut").focus();
+            return false;
+        }
     })
 })

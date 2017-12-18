@@ -56,7 +56,9 @@ namespace WebApp.Controllers
             {
                 services.Agregar(model);
             }
-            return View("Employees", services.Listar());
+            
+            ViewBag.Countries = countryServices.Listar();
+            return View(new EmployeeDto());
         }
 
         [HttpGet]

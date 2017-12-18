@@ -55,8 +55,8 @@ else
         <label class="labelForm">Turno:</label><br />
         Mañana: <input type="radio" value="Morning" @if ((int)Model.Turn == 0 && Model.Id != 0) {<text>checked</text>} name="Turn" />
         Tarde: <input type="radio" value="Late" name="Turn" @if ((int)Model.Turn == 1) { <text> checked</text>} />
-        Noche: <input type="radio" value="Night" name="Turn" @if ((int)Model.Turn == 2) { <text> checked</text>} /><br /><br />
-        <spanv id="turn_error" class="error label label-primary"></spanv><br />
+        Noche: <input type="radio" value="Night" name="Turn" @if ((int)Model.Turn == 2) { <text> checked</text>} /><br />
+        <spanv id="turn_error" class="error label label-primary"></spanv><br /><br />
         <button class="button" type="submit" name="send" id="send">Enviar</button>
         <button class="button" type="reset">Limpiar</button>
         <button class="buttonCancel" type="button" onclick="location.href='@Url.Action("Employees", "Employee")'">Cancelar</button>

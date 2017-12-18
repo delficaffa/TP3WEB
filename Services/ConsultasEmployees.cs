@@ -59,19 +59,25 @@ namespace Services
             var list = new List<EmployeeDto>();
             var all = this.employesRepository.Read();
 
-            foreach (var employe in all)
+            try
             {
-                list.Add(new EmployeeDto()
+                foreach (var employe in all)
                 {
-                    Id = employe.ID,
-                    Name = employe.Name,
-                    Surname = employe.Surname,
-                    CountryID = employe.Country,
-                    CountryName = employe.Country1.Name,
-                    Date = employe.Date,
-                    Turn = employe.Turn,
-                    Price = employe.Price
-                });
+                    list.Add(new EmployeeDto()
+                    {
+                        Id = employe.ID,
+                        Name = employe.Name,
+                        Surname = employe.Surname,
+                        CountryID = employe.Country,
+                        CountryName = employe.Country1.Name,
+                        Date = employe.Date,
+                        Turn = employe.Turn,
+                        Price = employe.Price
+                    });
+                }
+            } catch (NullReferenceException)
+            {
+                list = Listar();
             }
             return list;
 
