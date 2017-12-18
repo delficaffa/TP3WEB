@@ -114,7 +114,7 @@
         var hourIn = $("#hourIn").val();
         var hourout = $("#hourOut").val();
 
-        if (hourIn > hourout) {
+        if (hourIn > hourout && hourout != "") {
             $('#hour_error').html("La hora de salida no puede ser antes que la hora de entrada");
             $("#hour_error").fadeIn('fast');
             $("#hourOut").focus();

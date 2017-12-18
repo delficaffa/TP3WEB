@@ -12,8 +12,6 @@
     <input type="number" name="id" value="@Model.Id" hidden readonly /><br />
     <label>Id de empleado:</label>
     <input type="number" name="employeeId" value="@Model.EmployeeId" readonly /><br />
-    <label>Día:</label>
-    <input type="date" name="date" value="@Model.StartlHour.ToString("yyyy-MM-dd")" min="1970-01-01" required /><br />
     <label>Horario de entrada:</label>
     <input type="time" name="checkIn" id="hourIn" value="@Model.StartlHour.TimeOfDay" required/><br />
     <label>Horario de salida</label>

@@ -67,24 +67,13 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult NewHourIn(int Id, int employeeId,DateTime date, DateTime checkIn, DateTime? checkOut)
+        public ActionResult NewHourIn(int Id, int employeeId, DateTime checkIn, DateTime? checkOut)
         {
-            var cIn = new DateTime(date.Year, date.Month, date.Day, checkIn.Hour, checkIn.Minute, checkIn.Second );
-            DateTime? cOut;
-            if (checkOut != null)
-            {
-                cOut = new DateTime(date.Year, date.Month, date.Day, checkOut.Value.Hour, checkOut.Value.Minute, checkOut.Value.Second);
-            }
-            else
-            {
-                cOut = checkOut;
-            }
-
             var model = new HorariosDto
             {
                 EmployeeId = employeeId,
-                StartlHour = cIn,
-                FinishHour = cOut
+                StartlHour = checkIn,
+                FinishHour = checkOut
             };
 
             horarioServices.Add(model);
